@@ -1,5 +1,6 @@
 const { Schema } = require('mongoose');
 
+//Creates schema for saving books
 const bookSchema = new Schema({
   authors: [
     {
@@ -11,7 +12,7 @@ const bookSchema = new Schema({
     required: true,
   },
 
-  // Find saved book id from GoogleBooks
+  // To find saved book id from GoogleBooks
   bookId: {
     type: String,
     required: true,

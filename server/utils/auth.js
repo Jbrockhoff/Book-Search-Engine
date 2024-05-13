@@ -8,6 +8,7 @@ module.exports = {
       code: 'UNAUTHENTICATED',
     },
   }),
+  // To use middleware to look for token
   authMiddleware: function ({ req }) {
     let token = req.body.token || req.query.token || req.headers.authorization;
     if (req.headers.authorization) {
@@ -24,6 +25,8 @@ module.exports = {
     }
     return req;
   },
+
+  //To generate a new token
   signToken: function ({ email, username, _id }) {
     const payload = { email, username, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });

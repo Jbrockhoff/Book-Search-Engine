@@ -1,3 +1,4 @@
+//Defines properties of each type
 const typeDefs = `
 type User {
     _id: ID!
@@ -6,7 +7,7 @@ type User {
 
         email: String!
         password: String!
-        boookCount: String!
+        bookCount: String!
         savedBooks: String!
 
 }
@@ -14,17 +15,18 @@ type User {
 type Book {
     _id: ID!
     name: String!
+    bookId: String!
     authors: [String!]
     description: String!
-    bookId: String!
+    title: String!
     image: String!
     link: String!
-    title: String!
 }
 
 type Query {
     me: User
 }
+
 type Auth {
     token: String!
     user: User
@@ -36,4 +38,5 @@ type Mutation {
     removeBook(bookId: String!): User
   }
   `;
-  module.exports = typeDefs;
+
+module.exports = typeDefs;
