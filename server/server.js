@@ -1,8 +1,5 @@
 const express = require('express');
 const path = require('path');
-//is this right?
-const { ApolloServer } = require('apollo-server-express');
-const {typeDefs, resolvers } = require('./graphql/schema');
 const db = require('./config/connection');
 const routes = require('./routes');
 
@@ -12,14 +9,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const server = new ApolloServer({
-  typeDefs, 
-  resolvers,
-  context: ({req}) => {
-    //help
-  }
-})
-
+// if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
