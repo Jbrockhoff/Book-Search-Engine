@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+//is this right?
 const { ApolloServer } = require('apollo-server-express');
 const {typeDefs, resolvers } = require('./graphql/schema');
 const db = require('./config/connection');
@@ -15,7 +16,7 @@ const server = new ApolloServer({
   typeDefs, 
   resolvers,
   context: ({req}) => {
-    
+    //help
   }
 })
 
